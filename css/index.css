@@ -11,6 +11,13 @@ body * {
     align-items: center;
 }
 
+.container {
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    align-items: center;
+}
+
 .tela_login {
     border-radius: 5px;
     width: 240px;

@@ -12,11 +12,11 @@
                     <a class="nav-link" aria-current="page" href="/projeto_final">Ínicio</a>
                 </li>
 
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="/tutorial_php/exemplo.php">Exemplo PHP</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/projeto_final/Cadastro.php">Cadastro</a>
                 </li>
 
-                <li class="nav-item">
+                <!--<li class="nav-item">
                     <a class="nav-link" href="/tutorial_php/exemplo.html">Exemplo HTML</a>
                 </li>
 

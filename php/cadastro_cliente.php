@@ -9,7 +9,10 @@
 </head>
 
 <body>
-    <h1>CAD</h1>
+    <?php
+    require_once './src/nav_bar.php'
+    ?>
+    <h1>CADASTRO CLIENTE</h1>
     <form action="cadastro_cliente.php">
         <?php
         // importando configurações

@@ -18,7 +18,22 @@ body * {
     align-items: center;
 }
 
+.container_home {
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    align-items: center;
+}
+
 .tela_login {
+    border-radius: 5px;
+    width: 240px;
+    height: 200px;
+    background-color: rgb(121, 91, 62);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.205);
+}
+
+.tela_home {
     border-radius: 5px;
     width: 240px;
     height: 200px;

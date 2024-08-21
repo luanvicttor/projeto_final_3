@@ -37,11 +37,10 @@
         <div class="tudo">
             <div class="tela_login">
                 <form action="" method="POST" class="form">
-                    <label for="login" class="label">LOGIN:</label>
-                    <input type="text" name="login" id="login" class="box" autocomplete="new-password" required>
-                    <label for="senha" class="label">SENHA:</label>
-                    <input type="password" name="senha" id="senha" class="box" autocomplete="new-password" required>
-                    <input type="submit" class="botao" value="Entrar">
+                    <button type="button" class="botao" onclick="window.location.href='cadastro_usuario.php'">Cadastro de Usuários</button>
+                    <input type="submit" class="botao" value="Cadastro de Usuários">
+                    <input type="submit" class="botao" value="Cadastro de Livros">
+                    <input type="submit" class="botao" value="Movimentações">
                 </form>
             </div>
         </div>

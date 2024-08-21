@@ -23,7 +23,7 @@
         $controller = new ControllerUser($conexao);
 
         // Validar login
-        $usuario = $controller->validateLogin($login, $senha);
+        $usuario = $controller->validarLogin($login, $senha);
 
         if ($usuario) {
             echo '<div class="alert alert-success" role="alert">Login bem-sucedido!</div>';

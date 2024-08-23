@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="./../../css/index.css">
+
     <title>Biblioteca - Login</title>
 </head>
 
@@ -33,19 +32,7 @@
     }
     ?>
 
-    <div class="container">
-        <div class="tudo">
-            <div class="tela_login">
-                <form action="" method="POST" class="form">
-                    <label for="login" class="label">LOGIN:</label>
-                    <input type="text" name="login" id="login" class="box" autocomplete="new-password" required>
-                    <label for="senha" class="label">SENHA:</label>
-                    <input type="password" name="senha" id="senha" class="box" autocomplete="new-password" required>
-                    <input type="submit" class="botao" value="Entrar">
-                </form>
-            </div>
-        </div>
-    </div>
+
 </body>
 
 </html>

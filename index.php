@@ -1,33 +1,47 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<?php
+    session_start();
+    require_once "./php/view/usuario.php";
+    require_once "./php/view/tela_home.php";
+    require_once "./php/controller/controller.php";
+    
+    $uri = $_SERVER['REQUEST_URI'];
+    $method = $_SERVER['REQUEST_METHOD'];
+    $uri = explode("?",$uri)[0];
+    $uri = preg_replace('/\/{2,}/','/',$uri);
+    $uri = explode("/",$uri);
+    $uri = array_splice($uri, 2);
+    $tamanho = count ($uri);
+    if ($uri[$tamanho-1]=="")
+        array_pop($uri);
+    $inicio = 0;
+    
+    $usuario = new Usuario();
+    $home = new Home();
+    
+    if ($method=="GET" and $uri[$inicio]=="login" and count($uri)==1)
+        //Exibe formulario de Login
+        $usuario->getLogin ();
+    else if ($method=="POST" and $uri[$inicio]=="login" and count($uri)==1)
+    {
+        //Valida o login
+        $usuario->postLogin ();
+    }
+    else if ($method=="GET" and $uri[$inicio]=="home" and count($uri)==1 and $_SESSION["validar"] == true)
+    {
+        //Se Login ok, vai para Home
+        $home->home ();
+    }
+    else if ($method=="POST" and $uri[$inicio]=="usuario" and count($uri)==1 and $_SESSION["validar"] == true)
+    {
+        //
+        $usuario->post ();
+    }
+    else
+    {
+        echo "<h1>Página não encontrada</h1>";
+        $resposta = ['uri'=>$uri,'method'=>$method];
+        echo json_encode($resposta);
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <title>Biblioteca</title>
-</head>
-
-<body>
-    <?php
-    require_once './src/nav_bar.php'
-    ?>
-    <!-- <div class="container">
-        <div class="tudo">
-            <div class="tela_login">
-                <form action="" class="form">
-                    <label for="login" class="label">LOGIN:</label>
-                    <input type="text" name="login" id="login" class="box" autocomplete="new-password">
-                    <label for="senha" class="label">SENHA:</label>
-                    <input type="password" name="senha" id="senha" class="box" autocomplete="new-password">
-                    <input type="submit" class="botao">
-
-                </form>
-            </div>
-        </div>
-    </div> -->
-    <a href="./php/view/tela_login.php"> TELA DE LOGIN </a>
-</body>
-
-</html>
+    
+?>

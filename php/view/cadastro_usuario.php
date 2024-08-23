@@ -1,3 +1,17 @@
+<?php   
+    class CadastroUsuario {
+        public function home(){
+            $home = new Home();
+            $home->cabecalho ();
+            $home->navbar ();
+?>
+            
+<?php 
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -21,16 +35,9 @@
 
         // Iniciar conexão e controlador
         $conexao = new Conexao();
-        $controller = new ControllerUser($conexao);
+        
 
-        // Registrar o novo usuário
-        $resultado = $controller->registrarUsusario($nome_usuario, $login_usuario, $senha_usuario);
-
-        if ($resultado) {
-            echo '<div class="alert alert-success" role="alert">Usuário cadastrado com sucesso!</div>';
-        } else {
-            echo '<div class="alert alert-danger" role="alert">Erro ao cadastrar o usuário. Tente novamente.</div>';
-        }
+        
     }
     ?>
 

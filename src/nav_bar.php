@@ -16,19 +16,6 @@
                     <a class="nav-link" href="/projeto_final/Cadastro.php">Cadastro</a>
                 </li>
 
-                <!--<li class="nav-item">
-                    <a class="nav-link" href="/tutorial_php/exemplo.html">Exemplo HTML</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/tutorial_php/exemplo_db.php">Exemplo DB</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Projetos
-                    </a>
-                    <ul class="dropdown-menu">
                         <?php
                         foreach (scandir(__DIR__ . "/../projetos") as $projeto) {
                             if (preg_match("/" . "\.php$" . "/Xu", $projeto)) {
@@ -40,9 +27,9 @@
                         }
                         ?>
                     </ul>
-                </li> -->
+                </li> 
 
-                <!-- FIM DOS BOTões  DO NAVBAR -->
+
             </ul>
         </div>
     </div>

@@ -1,7 +1,7 @@
 <?php
 
 class Conexao {
-    private $conexao = null;
+    protected $conexao = null;
 
     public function __construct() {
         try {
@@ -18,24 +18,23 @@ class Conexao {
     }
 }
 
-class ControllerUser {
-    private $conn;
-
-    public function __construct($db) {
-        $this->conn = $db->getConexao();  
-    }
-
+class ControllerUser extends Conexao{
+    
     // Função para validar o login
-    public function validarLogin($login_usuario, $senha_usuario) {
+    public function validarLogin() {
+        $login_usuario = $_POST['login'];
+        $senha_usuario = sha1($_POST['senha']);
+
         $query = "SELECT * FROM usuarios WHERE login_usuario = :login_usuario";
-        $stmt = $this->conn->prepare($query);
+        $stmt = $this->conexao->prepare($query);
         $stmt->bindParam(":login_usuario", $login_usuario);
         $stmt->execute();
 
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
         
-        if ($usuario && sha1($senha_usuario) === $usuario['senha_usuario']) {
-            header('Location: tela_home.php');  // Redireciona para a tela principal
+        if ($usuario && $senha_usuario === $usuario['senha_usuario']) {
+            $_SESSION["validar"] = true;
+            header('Location: /projeto_final_3/home');  // Redireciona para a tela principal
             exit();
         } else {
             // Login inválido
@@ -44,10 +43,14 @@ class ControllerUser {
     }
 
     // Função para registrar um novo usuário
-    public function registrarUsusario($nome_usuario, $login_usuario, $senha_usuario) {
+    public function registrarUsusario() {
         try {
+            $nome_usuario = $_POST['nome_usuario'];
+            $login_usuario = $_POST['login_usuario'];
+            $senha_usuario = sha1($_POST['senha_usuario']);
+
             $query = "INSERT INTO usuarios (nome_usuario, login_usuario, senha_usuario) VALUES (:nome_usuario, :login_usuario, :senha_usuario)";
-            $stmt = $this->conn->prepare($query);
+            $stmt = $this->conexao->prepare($query);
 
             $stmt->bindParam(':nome_usuario', $nome_usuario);
             $stmt->bindParam(':login_usuario', $login_usuario);
